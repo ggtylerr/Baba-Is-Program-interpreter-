@@ -11,3 +11,7 @@ def missingIs():
 def doesntEnd():
   print("ERROR: Block doesn't end!")
   sys.exit(-1)
+
+def invalidSyntax():
+  print("ERROR: Invalid Syntax!")
+  sys.exit(-1)

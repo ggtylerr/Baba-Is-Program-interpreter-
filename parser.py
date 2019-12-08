@@ -1,20 +1,18 @@
 from util import utilStr
 from stacktrace import error
+from String import concatenation
 import shlex
 
 def parse(raw):
   rawList = shlex.split(raw, posix=False)
-  vars = []
+  varDict = {}
   i = 0
   while (i < len(rawList)):
     curr = rawList[i]
     if (utilStr.equals_caseless(curr,"say")):
-      printString = rawList[i + 1]
-      if (utilStr.enclosed(printString,"\"")):
-        print(utilStr.removeStartAndEnd(printString))
-      else:
-        error.unrecognizedVar()
-      i = i + 1
+      temp = concatenation.on(rawList,(i + 1),varDict)
+      print(temp[0])
+      i = temp[1]
     elif (utilStr.equals_caseless(curr,"comment")):
       try:
         i = rawList.index("\\n",i) - 1
@@ -45,7 +43,7 @@ def parse(raw):
 def determineNextIndex(rawList,i):
   testBool = False
   try:
-    testBool = utilStr.equals_caseless(rawList[i + 1] == "\\n") or utilStr.equals_caseless(rawList[i + 1] == "and")
+    testBool = utilStr.equals_caseless(rawList[i + 1],"\\n") or utilStr.equals_caseless(rawList[i + 1],"and")
   except:
     testBool = False
   if testBool:

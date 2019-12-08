@@ -14,7 +14,9 @@ COMMENT One-line statements
 
 SAY "Single" AND SAY "Line" AND COMMENT Any comments afterwards need a new line
 
-SAY "Test"
+COMMENT String concatenation
+
+SAY "Foo " PLUS "Bar"
 
 COMMENT TODO: Add variables
 COMMENT TODO: Add everything else (lol)
