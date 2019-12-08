@@ -1,6 +1,7 @@
 from util import utilStr
 from stacktrace import error
 from String import concatenation
+from Type import determine
 import shlex
 
 def parse(raw):
@@ -37,7 +38,27 @@ def parse(raw):
         i = j
       else:
         error.missingIs()
-      
+    elif (utilStr.equals_caseless(rawList[i + 1],"is")):
+      testBool = False
+      try:
+        testBool = utilStr.equals_caseless(rawList[i + 2],"\\n") or utilStr.equals_caseless(rawList[i + 2],"and")
+      except:
+        testBool = False
+      if not testBool:
+        i += 2
+        checkType = determine.Type(rawList,i,varDict)
+        definition = ""
+        if (checkType == "String"):
+          definition = concatenation.on(rawList,i,varDict)[0]
+        elif (checkType == "Integer"):
+          definition = rawList[i]
+        elif (checkType == "Variable"):
+          definition = varDict[rawList[i]]
+        else:
+          error.unrecognizedVar()
+        varDict[rawList[i-2]] = definition
+      else:
+        error.invalidSyntax()
     i = determineNextIndex(rawList,i)
 
 def determineNextIndex(rawList,i):

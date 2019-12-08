@@ -41,3 +41,11 @@ def removeStartAndEnd(string):
   Removes the start and end characters of a string.
   '''
   return removeStart(removeEnd(string))
+
+def checkInt(string):
+  '''
+  Checks if a string is an integer
+  '''
+  if string[0] in ('-', '+'):
+    return string[1:].isdigit()
+  return string.isdigit()

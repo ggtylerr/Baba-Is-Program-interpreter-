@@ -1,5 +1,6 @@
 from util import utilStr
 from stacktrace import error
+from Type import determine
 
 def on(rawList,i,varDict):
   returnString = ""
@@ -18,8 +19,13 @@ def on(rawList,i,varDict):
       i += 1
   while (k <= j):
     if not utilStr.equals_caseless(rawList[k],"plus"):
-      if (utilStr.enclosed(rawList[k],"\"")):
+      checkType = determine.Type(rawList,k,varDict)
+      if (checkType == "String"):
         returnString += utilStr.removeStartAndEnd(rawList[k])
+      elif (checkType == "Integer"):
+        returnString += rawList[k]
+      elif (checkType == "Variable"):
+        returnString += varDict[rawList[k]]
       else:
         error.unrecognizedVar()
     k += 1

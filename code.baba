@@ -18,5 +18,16 @@ COMMENT String concatenation
 
 SAY "Foo " PLUS "Bar"
 
-COMMENT TODO: Add variables
+COMMENT Variables
+
+YOU IS "YOU"
+BABA IS YOU
+
+SAY "BABA IS " PLUS BABA
+
+THEREALANSWER IS 21
+
+SAY "9 + 10 = " PLUS THEREALANSWER
+
+COMMENT TODO: Add math parser to integers
 COMMENT TODO: Add everything else (lol)
