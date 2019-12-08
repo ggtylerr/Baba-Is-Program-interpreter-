@@ -41,7 +41,7 @@ def parse(raw):
     elif (utilStr.equals_caseless(rawList[i + 1],"is")):
       testBool = False
       try:
-        testBool = utilStr.equals_caseless(rawList[i + 2],"\\n") or utilStr.equals_caseless(rawList[i + 2],"and")
+        testBool = rawList[i + 2] == "\\n" or utilStr.equals_caseless(rawList[i + 2],"and")
       except:
         testBool = False
       if not testBool:
@@ -53,7 +53,10 @@ def parse(raw):
         elif (checkType == "Integer"):
           definition = rawList[i]
         elif (checkType == "Variable"):
-          definition = varDict[rawList[i]]
+          if (not utilStr.checkInt(varDict[rawList[i]])):
+            definition = concatenation.on(rawList,i,varDict)[0]
+          else:
+            definition = varDict[rawList[i]]
         else:
           error.unrecognizedVar()
         varDict[rawList[i-2]] = definition
@@ -64,7 +67,7 @@ def parse(raw):
 def determineNextIndex(rawList,i):
   testBool = False
   try:
-    testBool = utilStr.equals_caseless(rawList[i + 1],"\\n") or utilStr.equals_caseless(rawList[i + 1],"and")
+    testBool = rawList[i + 1] == "\\n" or utilStr.equals_caseless(rawList[i + 1],"and")
   except:
     testBool = False
   if testBool:
