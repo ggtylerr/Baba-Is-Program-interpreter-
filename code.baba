@@ -1,0 +1,20 @@
+BLOCK-COMMENT IS
+This is a block comment
+
+Test
+Test
+
+AND END BLOCK-COMMENT
+
+COMMENT Simple prints
+
+SAY "Hello, World!"
+
+COMMENT One-line statements
+
+SAY "Single" AND SAY "Line" AND COMMENT Any comments afterwards need a new line
+
+SAY "Test"
+
+COMMENT TODO: Add variables
+COMMENT TODO: Add everything else (lol)
