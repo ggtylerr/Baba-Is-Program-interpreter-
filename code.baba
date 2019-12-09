@@ -44,7 +44,10 @@ SAY "Input something and I'll repeat it!"
 REPEAT IS INPUT
 SAY REPEAT
 
-COMMENT TODO: Add booleans
-COMMENT TODO: Add if/else statements
-COMMENT TODO: Add for statements
-COMMENT TODO: Find bugs
+BLOCK-COMMENT IS
+TODO
+* Add booleans
+* Add if/else statements
+* Add for statements
+* Find bugs
+AND END BLOCK-COMMENT
