@@ -2,6 +2,7 @@ from util import utilStr
 from stacktrace import error
 from String import concatenation
 from Type import determine
+from Integer import maths
 import shlex
 
 def parse(raw):
@@ -51,12 +52,15 @@ def parse(raw):
         if (checkType == "String"):
           definition = concatenation.on(rawList,i,varDict)[0]
         elif (checkType == "Integer"):
-          definition = rawList[i]
+          definition = maths.calc(rawList,i,varDict)
         elif (checkType == "Variable"):
           if (not utilStr.checkInt(varDict[rawList[i]])):
             definition = concatenation.on(rawList,i,varDict)[0]
           else:
-            definition = varDict[rawList[i]]
+            definition = maths.calc(rawList,i,varDict)
+        elif (checkType == "Input"):
+          rawList[i] = "\"" + input() + "\""
+          definition = concatenation.on(rawList,i,varDict)[0]
         else:
           error.unrecognizedVar()
         varDict[rawList[i-2]] = definition

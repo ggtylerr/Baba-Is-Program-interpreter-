@@ -25,7 +25,7 @@ def on(rawList,i,varDict):
       elif (checkType == "Integer"):
         returnString += rawList[k]
       elif (checkType == "Variable"):
-        returnString += varDict[rawList[k]]
+        returnString += str(varDict[rawList[k]])
       else:
         error.unrecognizedVar()
     k += 1

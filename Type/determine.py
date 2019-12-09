@@ -8,4 +8,6 @@ def Type(rawList,i,varDict):
     returnType = "Integer"
   elif (rawList[i] in varDict):
     returnType = "Variable"
+  elif (utilStr.equals_caseless(rawList[i],"input")):
+    returnType = "Input"
   return returnType

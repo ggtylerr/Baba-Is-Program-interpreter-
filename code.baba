@@ -31,5 +31,20 @@ NICE IS "Nice "
 NICEONE IS NICE PLUS "one..."
 SAY NICEONE
 
-COMMENT TODO: Add math parser to integers
-COMMENT TODO: Add everything else (lol)
+COMMENT Maths
+
+QUICK IS 2 PLUS 2
+MATHS IS QUICK MINUS 1
+SAY "2 PLUS 2 IS " PLUS QUICK
+SAY "MINUS 1 DAS " PLUS MATHS
+
+COMMENT Input
+
+SAY "Input something and I'll repeat it!"
+REPEAT IS INPUT
+SAY REPEAT
+
+COMMENT TODO: Add booleans
+COMMENT TODO: Add if/else statements
+COMMENT TODO: Add for statements
+COMMENT TODO: Find bugs

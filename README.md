@@ -1,5 +1,5 @@
 ## ABOUT INTERPRETER
-This is a basic interpreter made in Python. It's currently still in development, and only supports printing, comments, and variables.
+This is a basic interpreter made in Python. It's currently still in development, and only supports printing, comments, inputs and variables.
 
 To load a program, replace 'code.baba' with your own program, then run main.py
 
